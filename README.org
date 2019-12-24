@@ -13,7 +13,7 @@
 #+end_src
 * Installation
 #+begin_src bash
-pip install -r requirements
+pip install -r requirements.txt
 #+end_src
 * Axial Tree
 
@@ -23,7 +23,7 @@ pip install -r requirements
 ./l_system.py run "axial_tree"
 #+END_SRC
 * Cuadratic Snowflake
-
+  
 ** [[file:gifs/cuadratic_snowflake.gif]]
 
 #+BEGIN_SRC bash
@@ -35,6 +35,14 @@ pip install -r requirements
 
 #+BEGIN_SRC bash
 ./l_system.py run "hexagonal_gosper_curve"
+#+END_SRC
+
+* Koch Island
+
+** [[file:gifs/koch_island.gif]]
+
+#+BEGIN_SRC bash
+./l_system.py run "koch_island"
 #+END_SRC
 
 * Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
