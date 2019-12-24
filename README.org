@@ -15,20 +15,26 @@
 #+begin_src bash
 pip install -r requirements
 #+end_src
+* Axial Tree
+
+** [[file:gifs/axial_tree.gif]]
+
+#+BEGIN_SRC bash
+./l_system.py run "axial_tree"
+#+END_SRC
 * Cuadratic Snowflake
 
 ** [[file:gifs/cuadratic_snowflake.gif]]
 
 #+BEGIN_SRC bash
-./cuadratic_snowflake.py
+./l_system.py run "cuadratic_snowflake"
 #+END_SRC
-
 * Hexagonal Gosper Curve
 
 ** [[file:gifs/hexagonal_gosper_curve.gif]]
 
 #+BEGIN_SRC bash
-./hexagonal_gosper_curve.py
+./l_system.py run "hexagonal_gosper_curve"
 #+END_SRC
 
 * Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
