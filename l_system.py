@@ -1,79 +1,59 @@
+#!/usr/bin/env python
+
 import turtle
-from time import sleep
+import _tkinter
+import glob
+import os
+import importlib
 
-SYSTEM_RULES = {}
+import click
+from IPython import embed
 
-
-def derivation(axiom, steps):
-    derived = [axiom]  # seed
-    for _ in range(steps):
-        next_seq = derived[-1]
-        next_axiom = [rule(char) for char in next_seq]
-        derived.append(''.join(next_axiom))
-    return derived
+from lib.l_system import render_l_system
 
 
-def rule(sequence):
-    if sequence in SYSTEM_RULES:
-        return SYSTEM_RULES[sequence]
-    return sequence
+@click.group()
+def cli():
+    pass
 
 
-def render_l_system(rules, axiom, iterations, segment_length, alpha_zero, angle):
-    if type(rules) is not list:
-        rules = [rules]
-
-    for rule in rules:
-        key, value = rule.split("->")
-        SYSTEM_RULES[key] = value
-
-    model = derivation(axiom, iterations)
-    print(model)
-
-    r_turtle = set_turtle(alpha_zero)
-    turtle_screen = turtle.Screen()
-    turtle_screen.screensize(1500, 1500)
-    sleep(5)
-    draw_l_system(r_turtle, model[-1], segment_length, angle)
-    turtle_screen.exitonclick()
+@click.command()
+def list():
+    for file_ in sorted(glob.glob("systems/*.py")):
+        system = file_.split(os.sep)[1].replace(".py", "")
+        click.echo(f"[*] {system}")
 
 
-def draw_l_system(turtle, SYSTEM_RULES, seg_length, angle):
+@click.command()
+@click.argument('system')
+@click.option('-d', '--delay', default=0, help='Sleep for x seconds before drawing <default: 0>')
+@click.option('-v', '--verbose', default=False, help='Verbose <default: 0>')
+def run(system, delay, verbose):
+    click.echo(f"[*]Rendering {system}")
+    try:
+        system_module = getattr(__import__("systems", fromlist=[system]), system)
+    except AttributeError:
+        click.echo("System not found")
+        exit(1)
+    except Exception:
+        raise
 
-    stack = []
-    for command in SYSTEM_RULES:
-        if type(seg_length) == int:
-            _seg_length = seg_length
-        else:
-            _seg_length = seg_length()
+    os.environ["TK_SILENCE_DEPRECATION"] = "1"
 
-        if type(angle) == int:
-            _angle = angle
-        else:
-            _angle = angle()
-
-        turtle.pd()
-        if command in ["F", "G", "R", "L"]:
-            turtle.forward(_seg_length)
-        elif command == "f":
-            turtle.pu()
-            turtle.forward(_seg_length)
-        elif command == "+":
-            turtle.right(_angle)
-        elif command == "-":
-            turtle.left(_angle)
-        elif command == "[":
-            stack.append((turtle.position(), turtle.heading()))
-        elif command == "]":
-            turtle.pu()
-            position, heading = stack.pop()
-            turtle.goto(position)
-            turtle.setheading(heading)
+    args = ['rules', 'axiom', 'iterations', 'segment_length', 'alpha_zero', 'angle']
+    try:
+        render_l_system(
+            *[getattr(system_module, a) for a in args],
+            debug=verbose,
+            delay=delay
+        )
+    except (_tkinter.TclError, turtle.Terminator):
+        print("Aborting")
 
 
-def set_turtle(alpha_zero):
-    r_turtle = turtle.Turtle()
-    r_turtle.screen.title("L-System Derivation")
-    r_turtle.speed(0)
-    r_turtle.setheading(alpha_zero)
-    return r_turtle
+cli.add_command(run)
+cli.add_command(list)
+
+
+if __name__ == '__main__':
+    cli()
