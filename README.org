@@ -1,7 +1,8 @@
 * L-System
 ** References
-*** [[http://paulbourke.net/fractals/lsys/][L-System manual]]
 *** [[https://en.wikipedia.org/wiki/L-system][L-system - Wikipedia]]
+*** [[http://paulbourke.net/fractals/lsys/][L-System manual]]
+*** [[https://news.ycombinator.com/item?id=21749806][L-systems | Hacker News]]
 
 * Cuadratic Snowflake
 
@@ -9,6 +10,14 @@
 
 #+BEGIN_SRC bash
 ./cuadratic_snowflake.py
+#+END_SRC
+
+* Hexagonal Gosper Curve
+
+** [[file:gifs/hexagonal_gosper_curve.gif]]
+
+#+BEGIN_SRC bash
+./hexagonal_gosper_curve.py
 #+END_SRC
 
 * Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
