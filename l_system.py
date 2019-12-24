@@ -19,9 +19,11 @@ def cli():
 
 @click.command()
 def list():
+    excluded = ["__init__"]
     for file_ in sorted(glob.glob("systems/*.py")):
         system = file_.split(os.sep)[1].replace(".py", "")
-        click.echo(f"[*] {system}")
+        if system not in excluded:
+            click.echo(f"[*] {system}")
 
 
 @click.command()

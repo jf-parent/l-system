@@ -4,6 +4,17 @@
 *** [[http://paulbourke.net/fractals/lsys/][L-System manual]]
 *** [[https://news.ycombinator.com/item?id=21749806][L-systems | Hacker News]]
 
+* Usage
+#+begin_src bash
+./l_system.py --help
+./l_system.py list
+./l_system.py run "system_name"
+./l_system.py run --help
+#+end_src
+* Installation
+#+begin_src bash
+pip install -r requirements
+#+end_src
 * Cuadratic Snowflake
 
 ** [[file:gifs/cuadratic_snowflake.gif]]
