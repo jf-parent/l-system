@@ -1,4 +1,5 @@
 import turtle
+from time import sleep
 
 SYSTEM_RULES = {}
 
@@ -27,27 +28,40 @@ def render_l_system(rules, axiom, iterations, segment_length, alpha_zero, angle)
         SYSTEM_RULES[key] = value
 
     model = derivation(axiom, iterations)
+    print(model)
 
     r_turtle = set_turtle(alpha_zero)
     turtle_screen = turtle.Screen()
     turtle_screen.screensize(1500, 1500)
+    sleep(5)
     draw_l_system(r_turtle, model[-1], segment_length, angle)
     turtle_screen.exitonclick()
 
 
 def draw_l_system(turtle, SYSTEM_RULES, seg_length, angle):
+
     stack = []
     for command in SYSTEM_RULES:
+        if type(seg_length) == int:
+            _seg_length = seg_length
+        else:
+            _seg_length = seg_length()
+
+        if type(angle) == int:
+            _angle = angle
+        else:
+            _angle = angle()
+
         turtle.pd()
         if command in ["F", "G", "R", "L"]:
-            turtle.forward(seg_length)
+            turtle.forward(_seg_length)
         elif command == "f":
             turtle.pu()
-            turtle.forward(seg_length)
+            turtle.forward(_seg_length)
         elif command == "+":
-            turtle.right(angle)
+            turtle.right(_angle)
         elif command == "-":
-            turtle.left(angle)
+            turtle.left(_angle)
         elif command == "[":
             stack.append((turtle.position(), turtle.heading()))
         elif command == "]":

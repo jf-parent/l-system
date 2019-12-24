@@ -1,0 +1,14 @@
+* L-System
+** References
+*** [[http://paulbourke.net/fractals/lsys/][L-System manual]]
+*** [[https://en.wikipedia.org/wiki/L-system][L-system - Wikipedia]]
+
+* Cuadratic Snowflake
+
+** [[file:gifs/cuadratic_snowflake.gif]]
+
+#+BEGIN_SRC bash
+./cuadratic_snowflake.py
+#+END_SRC
+
+* Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
