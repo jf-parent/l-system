@@ -24,7 +24,7 @@ pip install -r requirements.txt
 #+END_SRC
 * Quadratic Snowflake
   
-** [[file:gifs/cuadratic_snowflake.gif]]
+** [[file:gifs/quadratic_snowflake.gif]]
 
 #+BEGIN_SRC bash
 ./l_system.py run "quadratic_snowflake"
@@ -43,6 +43,14 @@ pip install -r requirements.txt
 
 #+BEGIN_SRC bash
 ./l_system.py run "koch_island"
+#+END_SRC
+
+* Sierpinski Triangle
+
+** [[file:gifs/sierpinski_triangle.gif]]
+
+#+BEGIN_SRC bash
+./l_system.py run "sierpinski_triangle"
 #+END_SRC
 
 * Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
