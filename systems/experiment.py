@@ -1,12 +1,26 @@
 import random
 
+from lib import color
+
+axiom = "w=F+G+G"
 rules = [
-    "F->F-+FF",
-    "-->F",
-    "+->-",
+    "F->F+G-F-G+F",
+    "G->GG"
 ]
-axiom = "w=F-+"
-iterations = 2
+iterations = 10
 segment_length = 5
-alpha_zero = 90
-angle = lambda: random.randint(45, 60)
+alpha_zero = 120
+angle = 120
+
+
+def before_render(l_system):
+    l_system.screen.colormode(255)
+    l_system.turtle.penup()
+    l_system.turtle.setposition(0, -200)
+
+
+def before_draw(l_system):
+    l_system.turtle.pencolor(color.get_random_color())
+    return dict(
+        segment_length=random.randint(5, 8)
+    )

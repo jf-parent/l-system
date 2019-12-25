@@ -54,5 +54,11 @@ pip install -r requirements.txt
 ./l_system.py run "sierpinski_triangle"
 #+END_SRC
 
+* Randomized Sierpinski Triangle
 
-/Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]/
+** [[file:gifs/sierpinski_randomized.gif]]
+
+#+BEGIN_SRC bash
+./l_system.py run "randomized_sierpinski_triangle"
+#+END_SRC
+

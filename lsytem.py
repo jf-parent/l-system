@@ -9,7 +9,7 @@ import importlib
 import click
 from IPython import embed
 
-from lib.l_system import render_l_system
+from lib.l_system import LSystem, HOOKS
 from lib import logger
 
 
@@ -49,12 +49,18 @@ def run(system, delay, verbose):
 
     args = ['rules', 'axiom', 'iterations', 'segment_length', 'alpha_zero', 'angle']
     try:
-        render_l_system(
+        l_system = LSystem(
             *[getattr(system_module, a) for a in args],
             title,
             debug=verbose,
             delay=delay
         )
+
+        for hook in HOOKS:
+            if hasattr(system_module, hook):
+                l_system.register_hook(hook, getattr(system_module, hook))
+
+        l_system.render()
     except (_tkinter.TclError, turtle.Terminator):
         logger.info("Aborting")
 
