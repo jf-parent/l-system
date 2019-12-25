@@ -1,7 +1,8 @@
+axiom = "w=F"
 rules = [
-    "F->F+F-F-F+F"
+    "F->F+F-F-F-G+F+F+F-F",
+    "G->GGG"
 ]
-axiom = "w=-F"
 iterations = 4
 segment_length = 5
 alpha_zero = 90

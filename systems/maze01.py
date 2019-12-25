@@ -1,5 +1,5 @@
 rules = [
-    "F->F-F+F",
+    "F->F+FF-F",
 ]
 axiom = "w=F+F+F"
 iterations = 5

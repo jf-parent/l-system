@@ -3,7 +3,8 @@
 *** [[https://en.wikipedia.org/wiki/L-system][L-system - Wikipedia]]
 *** [[http://paulbourke.net/fractals/lsys/][L-System manual]]
 *** [[https://news.ycombinator.com/item?id=21749806][L-systems | Hacker News]]
-
+*** [[https://fedimser.github.io/l-systems.html][L-systems | Dmitriy Fedoriaka's Website]]
+*** [[http://www.kevs3d.co.uk/dev/lsystems/][L-Systems Turtle Graphics Renderer - HTML5 Canvas - by Kevin Roast]]
 * Usage
 #+begin_src bash
 ./l_system.py --help
@@ -53,4 +54,5 @@ pip install -r requirements.txt
 ./l_system.py run "sierpinski_triangle"
 #+END_SRC
 
-* Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]
+
+/Adapted from [[https://github.com/ambron60/l-system-drawing][ambron60/l-system-drawing: A Python-based rendering or interpretation of L-systems.]]/

@@ -1,8 +1,8 @@
+axiom = "w=F"
 rules = [
-    "F->F+F-F-F+F"
+    "F->FFF[+FFF+FFF+FFF]",
 ]
-axiom = "w=-F"
-iterations = 4
+iterations = 5
 segment_length = 5
 alpha_zero = 90
 angle = 90
