@@ -8,7 +8,7 @@ HOOKS = ['before_draw', 'before_render', 'after_render']
 
 class LSystem(object):
 
-    def __init__(self, rules, axiom, iterations, segment_length, alpha_zero, angle, title, debug=False, delay=0):
+    def __init__(self, rules, axiom, iterations, segment_length, alpha_zero, angle, title, debug=False, delay=0, length_factor=None):
 
         # Make sure rules is a list
         if type(rules) is not list:
@@ -25,6 +25,7 @@ class LSystem(object):
         self.debug = debug
         self.delay = delay
         self.system_rules = dict()
+        self.length_factor = length_factor
 
         self.configure_logger()
 
@@ -76,6 +77,7 @@ class LSystem(object):
         logger.debug(f'segment_length={self.segment_length}')
         logger.debug(f'alpha_zero={self.alpha_zero}')
         logger.debug(f'angle={self.angle}')
+        logger.debug(f'length_factor={self.length_factor}')
 
         self.setup_turtle()
 
@@ -118,6 +120,9 @@ class LSystem(object):
             elif command == "-":
                 self.turtle.left(_angle)
 
+            elif command == "|":
+                self.turtle.left(180)
+
             elif command == "[":
                 stack.append((self.turtle.position(), self.turtle.heading()))
 
@@ -126,6 +131,12 @@ class LSystem(object):
                 position, heading = stack.pop()
                 self.turtle.goto(position)
                 self.turtle.setheading(heading)
+
+            elif command == '>' and self.length_factor:
+                self.segment_length *= self.length_factor
+
+            elif command == '<' and self.length_factor:
+                self.segment_length /= self.length_factor
 
     def wait(self):
         self.screen.delay(self.delay*100)

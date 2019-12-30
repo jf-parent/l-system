@@ -48,12 +48,14 @@ def run(system, delay, verbose):
     title = _system.replace('_', ' ').title()
 
     args = ['rules', 'axiom', 'iterations', 'segment_length', 'alpha_zero', 'angle']
+    kwargs = ['length_factor']
     try:
         l_system = LSystem(
             *[getattr(system_module, a) for a in args],
             title,
             debug=verbose,
-            delay=delay
+            delay=delay,
+            **{k:getattr(system_module, k, None) for k in kwargs},
         )
 
         for hook in HOOKS:

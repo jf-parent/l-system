@@ -1,7 +1,3 @@
-# TODO validate
-
-import math
-
 axiom = "w=X"
 rules = [
     "F->FF",
@@ -10,4 +6,4 @@ rules = [
 iterations = 5
 segment_length = 5
 alpha_zero = 90
-angle = math.pi/9
+angle = 20
