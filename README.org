@@ -7,10 +7,10 @@
 *** [[http://www.kevs3d.co.uk/dev/lsystems/][L-Systems Turtle Graphics Renderer - HTML5 Canvas - by Kevin Roast]]
 * Usage
 #+begin_src bash
-./l_system.py --help
-./l_system.py list
-./l_system.py run "system_name"
-./l_system.py run --help
+./lsystem.py --help
+./lsystem.py list
+./lsystem.py run "system_name"
+./lsystem.py run --help
 #+end_src
 * Installation
 #+begin_src bash
@@ -21,21 +21,21 @@ pip install -r requirements.txt
 ** [[file:gifs/axial_tree.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "axial_tree"
+./lsystem.py run "axial_tree"
 #+END_SRC
 * Quadratic Snowflake
   
 ** [[file:gifs/quadratic_snowflake.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "quadratic_snowflake"
+./lsystem.py run "quadratic_snowflake"
 #+END_SRC
 * Hexagonal Gosper Curve
 
 ** [[file:gifs/hexagonal_gosper_curve.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "hexagonal_gosper_curve"
+./lsystem.py run "hexagonal_gosper_curve"
 #+END_SRC
 
 * Koch Island
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ** [[file:gifs/koch_island.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "koch_island"
+./lsystem.py run "koch_island"
 #+END_SRC
 
 * Sierpinski Triangle
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 ** [[file:gifs/sierpinski_triangle.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "sierpinski_triangle"
+./lsystem.py run "sierpinski_triangle"
 #+END_SRC
 
 * Randomized Sierpinski Triangle
@@ -59,6 +59,6 @@ pip install -r requirements.txt
 ** [[file:gifs/sierpinski_randomized.gif]]
 
 #+BEGIN_SRC bash
-./l_system.py run "randomized_sierpinski_triangle"
+./lsystem.py run "randomized_sierpinski_triangle"
 #+END_SRC
 
