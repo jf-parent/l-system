@@ -141,7 +141,8 @@ class LSystem(object):
     def wait(self):
         self.screen.delay(self.delay*100)
         for _ in range(self.delay):
-            self.turtle.home()
+            #self.turtle.home()
+            sleep(1)
 
         self.screen.delay(0)
 
